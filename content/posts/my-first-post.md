@@ -93,11 +93,12 @@ $$
 
 ## config.toml
 
+雰囲気でさわっていく
+
 ```
 title = "ロックスター・エナジードリンク"
-baseURL = "http://example.org/"
+baseURL = "https://higgma.github.io/rockstar/"
 languageCode = "ja-jp"
-theme = "kiss"
 
 # github pages
 publishDir = "docs"
@@ -105,9 +106,19 @@ publishDir = "docs"
 # for summary
 hasCJKLanguage = true
 summaryLength = 140
+
+# tmaiaroto/hugo-redlounge
+theme = "hugo-redlounge"
+
+[params]
+    sidebartitle = "Rockstar"
+    sidebartagline = "Is super awesome"
+
 ```
 
 ## CircleCI
+
+はやく脳死で書けるようになりたい。
 
 ```
 version: 2
