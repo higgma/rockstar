@@ -6,10 +6,19 @@
     <description>Recent content in Posts on ロックスター・エナジードリンク</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Fri, 30 Nov 2018 18:44:30 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 30 Nov 2018 23:01:00 +0900</lastBuildDate>
     
 	<atom:link href="https://higgma.github.io/rockstar/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>herokuコマンドを使わずにherokuにデプロイする</title>
+      <link>https://higgma.github.io/rockstar/posts/heroku/</link>
+      <pubDate>Fri, 30 Nov 2018 23:01:00 +0900</pubDate>
+      
+      <guid>https://higgma.github.io/rockstar/posts/heroku/</guid>
+      <description>Herokuにアプリをデプロイする場合、普通はherokuコマンドを使えという話になるはずだが、使うツールが少なければ少ないほど偉いというマイブームの縛りプレイである。 mkdir sandbox cd sandbox # 使い捨ての鍵ペア ssh-keygen -t rsa -b 4096 -C &#39;username@example.com&#39; -f ./id_rsa # 適当なWebアプリ rails new myapp --database=postgresql</description>
+    </item>
     
     <item>
       <title>Gitコミットの名義管理</title>

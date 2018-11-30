@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
   <title>
-    Gitコミットの名義管理 // ロックスター・エナジードリンク
+    herokuコマンドを使わずにherokuにデプロイする // ロックスター・エナジードリンク
   </title>
 
   <link href="http://gmpg.org/xfn/11" rel="profile">
@@ -16,11 +16,11 @@
 <meta name="author" content="">
 <meta name="generator" content="Hugo 0.53-DEV" />
 
-  <meta property="og:title" content="Gitコミットの名義管理" />
+  <meta property="og:title" content="herokuコマンドを使わずにherokuにデプロイする" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:url" content="https://higgma.github.io/rockstar/posts/gitname/" />
+<meta property="og:url" content="https://higgma.github.io/rockstar/posts/heroku/" />
 
 
   
@@ -111,7 +111,7 @@ if (!doNotTrack) {
 	    
   		<section class="post">
             <h1 class="post-title">
-              <a href="/rockstar/posts/gitname/">Gitコミットの名義管理</a>
+              <a href="/rockstar/posts/heroku/">herokuコマンドを使わずにherokuにデプロイする</a>
             </h1>
             <h3 class="post-subtitle">
             	
@@ -132,37 +132,66 @@ if (!doNotTrack) {
 
 			
 
-            <p>間違って恥ずかしい名前を載せたくないものだ。あるいは、新しいパソコンにGitの名前を設定するのがめんどくさい。</p>
+            <p>Herokuにアプリをデプロイする場合、普通は<code>heroku</code>コマンドを使えという話になるはずだが、使うツールが少なければ少ないほど偉いというマイブームの縛りプレイである。</p>
 
-<p>以下のコマンドは、一度実行すれば、<code>./.git/config</code> に設定として永続化される。もし手元のPCでochinchinというユーザーネームを使っていても、コミットログにはその気配を残さない。</p>
+<pre><code>mkdir sandbox
+cd sandbox
 
-<pre><code>git config user.useConfigOnly true
-NAME=&quot;Higuma&quot;
+# 使い捨ての鍵ペア
+ssh-keygen -t rsa -b 4096 -C 'username@example.com' -f ./id_rsa
+
+# 適当なWebアプリ
+rails new myapp --database=postgresql
+cd myapp
+</code></pre>
+
+<p>要するにHerokuさんに公開鍵さえ預けてしまえばデプロイはできるわけで。</p>
+
+<p>HerokuのWeb管理画面を開き、適当なアプリを作り、↑で生成した公開鍵を登録する。</p>
+
+<p>WebアプリのGitリポジトリに、Herokuアプリのリモートリポジトリの場所と、使用する秘密鍵の情報を与える。</p>
+
+<pre><code>git remote add heroku git@heroku.com:blooming-oasis-35383.git
+git config core.sshCommand 'ssh -i ../id_rsa'
+</code></pre>
+
+<p>ついでに名前。</p>
+
+<pre><code>NAME=&quot;Higuma&quot;
 EMAIL=&quot;higgma@example.com&quot;
 git config user.name $NAME
 git config user.email $EMAIL
-echo &quot;Set user.name as $(git config --get user.name)&quot;
-echo &quot;Set user.email as $(git config --get user.email)&quot;
 </code></pre>
 
-<p><code>.git</code> がどのような情報を持っているかを見てみよう。</p>
+<p>このようにすると何が嬉しいかというと、 <code>.git/config</code> に書いてある情報のみを用いていることがはっきりする。</p>
 
-<pre><code>$ git config --list --local
-core.repositoryformatversion=0
-core.filemode=false
-core.bare=false
-core.logallrefupdates=true
-core.ignorecase=true
-remote.origin.url=https://github.com/higgma/je.git
-remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
-user.useconfigonly=true
-user.name=Higuma
-user.email=higgma@example.com
+<pre><code>$ cat .git/config
+[core]
+        repositoryformatversion = 0
+        filemode = false
+        bare = false
+        logallrefupdates = true
+        ignorecase = true
+        sshCommand = ssh -i ../id_rsa
+[remote &quot;heroku&quot;]
+        url = git@heroku.com:blooming-oasis-35383.git
+        fetch = +refs/heads/*:refs/remotes/heroku/*
+[user]
+        name = Higuma
+        email = higgma@example.com
 </code></pre>
 
-<p>ところで <code>git config</code> コマンド全般について、インターネットを見ていると <code>--global</code> なる引数を見かけることがある。これは <code>./.git/config</code> ではなく <code>~/.gitconfig</code> に対して永続化をもたらす。</p>
+<p>git push する。</p>
 
-<p>つまり、設定がPC全体に影響する。常に同じ名義を使う場合、つまり大方のケースでは<code>--global</code>をつけるだろうが、特定のプロジェクト（フォルダ）に設定を閉じ込めたい場合、この引数は使わない。</p>
+<pre><code>$ git push heroku master
+remote: -----&gt; Launching...
+remote:        Released v6
+remote:        https://blooming-oasis-35383.herokuapp.com/ deployed to Heroku
+remote:
+remote: Verifying deploy... done.
+To heroku.com:blooming-oasis-35383.git
+ * [new branch]      master -&gt; master
+</code></pre>
 
 	
 			
@@ -173,16 +202,11 @@ user.email=higgma@example.com
 				<div class="paging">
 					<span class="paging-label">More Reading</span>
 					
-					<div class="paging-newer">
-						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
-						<a class="paging-link" href="/rockstar/posts/heroku/">herokuコマンドを使わずにherokuにデプロイする</a>
-		            </div>
-		            
 
 					
 					<div class="paging-older">
 						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
-			            <a class="paging-link" href="/rockstar/posts/my-first-post/">メイキング・ブログ後編(Hugo)</a>
+			            <a class="paging-link" href="/rockstar/posts/gitname/">Gitコミットの名義管理</a>
 		            </div>
 		            
 	            </div>
