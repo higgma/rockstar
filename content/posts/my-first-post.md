@@ -123,3 +123,5 @@ jobs:
           git commit -m "[ci skip] Circle CI"
       - run: git push origin master
 ```
+
+コミットメッセージは最初まじめに書いていてもそのうち `git pull origin master; git add .; git commit -m "a"; git push origin master` などやるようになり、治安が悪くなります。
