@@ -3,29 +3,34 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://example.org/posts/my-first-post/</loc>
+    <loc>https://higgma.github.io/rockstar/posts/my-first-post/</loc>
     <lastmod>2018-11-30T16:23:42+09:00</lastmod>
   </url>
   
   <url>
-    <loc>http://example.org/categories/</loc>
+    <loc>https://higgma.github.io/rockstar/posts/2018-11-30-blog/</loc>
+    <lastmod>2018-11-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://higgma.github.io/rockstar/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/</loc>
+    <loc>https://higgma.github.io/rockstar/posts/</loc>
     <lastmod>2018-11-30T16:23:42+09:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/posts/</loc>
-    <lastmod>2018-11-30T16:23:42+09:00</lastmod>
+    <loc>https://higgma.github.io/rockstar/tags/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://example.org/tags/</loc>
+    <loc>https://higgma.github.io/rockstar/</loc>
+    <lastmod>2018-11-30T16:23:42+09:00</lastmod>
     <priority>0</priority>
   </url>
   

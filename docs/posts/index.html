@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"  lang="en-us">
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="ja-jp">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-<title>Posts | My New Hugo Site</title>
+<title>Posts | ロックスター・エナジードリンク</title>
 
 
 
-<link rel="stylesheet" href="/css/style.css"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="stylesheet" href="/rockstar/css/style.css"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
 <link rel="manifest" href="/site.webmanifest">
@@ -21,8 +21,8 @@
   <div class="container">
     <nav class="nav">
       <div class="nav-left">
-        <a class="nav-item" href="http://example.org/">
-          <h1 class="title is-4">My New Hugo Site</h1>
+        <a class="nav-item" href="https://higgma.github.io/rockstar/">
+          <h1 class="title is-4">ロックスター・エナジードリンク</h1>
         </a>
       </div>
       <div class="nav-right">
@@ -47,13 +47,29 @@
         
       </div>
       <h2 class="subtitle is-6">November 30, 2018</h2>
-      <h1 class="title"><a href="http://example.org/posts/my-first-post/">Hugoにいく</a></h1>
+      <h1 class="title"><a href="https://higgma.github.io/rockstar/posts/my-first-post/">メイキング・ブログ(Hugo編)</a></h1>
       <div class="content">
-        インストール 管理者権限コマンドプロンプトで
-choco install hugo  新しくつくるには
-hugo new site myblog  テーマの入手と適用 テーマはこれにきめた。
-https://themes.gohugo.io//theme/kiss/
-cd themes git clone https://github.com/ribice/kiss.git cd ../ echo 'theme = &quot;kiss&quot;' &gt;&gt; config.toml  何か書く hugo new posts/my-first-post.md  --- title: &quot;My First Post&quot; date: 2018-11-30T16:23:42+09:00 draft: false --- Hello World  表示 hugo server -D  記事の更新はホットリロードしてくれるが、config.tomlをいじった場合は再起動させる必要がある。
+        特に大きなこだわりないしJekyllでいいか、と思ってJekyllをいじっていたけどHugoに寝返った。 巷で言われるホットリロードの速さは、嬉しいけどなくても困らない。 よりクリティカルな問題は、Jekyllではドキュメントの整備が甘いのか、Issueの海に潜るなど辛くなりがちなこ
+        
+        <a class="button is-link" href="https://higgma.github.io/rockstar/posts/my-first-post/" style="height:28px">
+          Read more
+        </a>
+        
+      </div>
+    </article>
+    
+    <article>
+      <div class="subtitle tags is-6 is-pulled-right">
+        
+      </div>
+      <h2 class="subtitle is-6">November 30, 2018</h2>
+      <h1 class="title"><a href="https://higgma.github.io/rockstar/posts/2018-11-30-blog/">メイキング・ブログ(Jekyll, CircleCI, GitHub Pages)</a></h1>
+      <div class="content">
+        人は何故「ブログを作った」というブログエントリを書いてしまうのだろう。 要素 Jekyll (手直しできないのが気に入らないのでHugoにしたい) CircleCI GitHub Pages Gitの名義管理 我々は署名を求められている。その際、間違って恥ずかしい名前を載せたくないものだ。そんな名前で大丈夫か？ 以下のコマンドは、一度実行
+        
+        <a class="button is-link" href="https://higgma.github.io/rockstar/posts/2018-11-30-blog/" style="height:28px">
+          Read more
+        </a>
         
       </div>
     </article>
@@ -77,16 +93,13 @@ cd themes git clone https://github.com/ribice/kiss.git cd ../ echo 'theme = &quo
   </div>
 </section>
 
-<section class="section">
-  <div class="container has-text-centered">
-    <p></p>
-    
-  </div>
-</section>
-
-
-
-</body>
-</html>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+</script>
+<script type="text/javascript" 
+    async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 
 
