@@ -1,7 +1,6 @@
 title = "ロックスター・エナジードリンク"
 baseURL = "https://higgma.github.io/rockstar/"
 languageCode = "ja-jp"
-theme = "kiss"
 
 # github pages
 publishDir = "docs"
@@ -9,3 +8,9 @@ publishDir = "docs"
 # for summary
 hasCJKLanguage = true
 summaryLength = 140
+
+# tmaiaroto/hugo-redlounge
+theme = "redlounge"
+[params]
+    sidebartitle = "Rockstar"
+    sidebartagline = "Is super awesome"
