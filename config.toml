@@ -10,7 +10,7 @@ hasCJKLanguage = true
 summaryLength = 140
 
 # tmaiaroto/hugo-redlounge
-theme = "redlounge"
+theme = "hugo-redlounge"
 [params]
     sidebartitle = "Rockstar"
     sidebartagline = "Is super awesome"
