@@ -124,4 +124,6 @@ jobs:
       - run: git push origin master
 ```
 
+Insightを見ると、ビルド時間はだいたい1分ぐらいである。
+
 コミットメッセージは最初まじめに書いていてもそのうち `git pull origin master; git add .; git commit -m "a"; git push origin master` などやるようになり、治安が悪くっていく。
