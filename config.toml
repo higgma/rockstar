@@ -14,5 +14,5 @@ summaryLength = 120
 theme = "hugo-redlounge"
 
 [params]
-    sidebartitle = "Rockstar"
-    sidebartagline = "Is super awesome"
+    sidebartitle = "it"
+    sidebartagline = "yaks"
