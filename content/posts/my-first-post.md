@@ -88,6 +88,9 @@ $$
 y = f(x)
 $$
 
+[^ref1]: https://m0t0k1ch1st0ry.com/blog/2017/10/07/mathjax/
+[^ref2]: https://gohugo.io/templates/partials/
+
 ## config.toml
 
 ```
@@ -104,9 +107,9 @@ hasCJKLanguage = true
 summaryLength = 140
 ```
 
-## .circleci/config.yml
+## CircleCI
 
-```yaml
+```
 version: 2
 jobs:
   build:
@@ -127,5 +130,5 @@ jobs:
       - run: git push origin master
 ```
 
-[^ref1]: https://m0t0k1ch1st0ry.com/blog/2017/10/07/mathjax/
-[^ref2]: https://gohugo.io/templates/partials/
+
+
