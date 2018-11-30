@@ -4,12 +4,8 @@ date: 2018-11-30T16:23:42+09:00
 ---
 
 特にこだわりがなくJekyllを触っていたら、いつの間にかHugoに寝返っていた。
-
-巷で言われるホットリロードの速さは嬉しいけども、なくても困らない。
-よりクリティカルな問題はJekyllではドキュメントの整備が甘いことで、Issueの海に潜るなど辛さに音を上げた。
-
+Jekyllではドキュメントの整備が甘く、Issueの海に潜ることの辛さに音を上げた。
 他方、Hugoのドキュメントはしっかりしている。
-
 
 ## インストール
 
@@ -23,19 +19,6 @@ choco install hugo
 
 ```
 hugo new site myblog
-```
-
-## テーマの入手と適用
-
-テーマはこれにきめた。
-
-https://themes.gohugo.io//theme/kiss/
-
-```
-cd themes
-git clone https://github.com/ribice/kiss.git
-cd ../
-echo 'theme = "kiss"' >> config.toml
 ```
 
 ## 何か書く
@@ -62,9 +45,36 @@ hugo server -D
 
 `-D` をつけると記事の更新はホットリロードになる。ただし、`config.toml`をいじった場合は再起動させる必要がある。
 
-![](https://i.imgur.com/fqOrgQ1.png)
+## テーマの適用
 
-## 数式を書けるようにする
+```
+cd themes
+git submodule add https://github.com/tmaiaroto/hugo-redlounge
+```
+
+config.toml
+
+```
+title = "ロックスター・エナジードリンク"
+baseURL = "https://higgma.github.io/rockstar/"
+languageCode = "ja-jp"
+
+# github pages
+publishDir = "docs"
+
+# for summary
+hasCJKLanguage = true
+summaryLength = 140
+
+# tmaiaroto/hugo-redlounge
+theme = "hugo-redlounge"
+
+[params]
+    sidebartitle = "Rockstar"
+    sidebartagline = "Is super awesome"
+```
+
+## 数式の有効化
 
 数式エンジンにはMathJaxを選んだ。Jupyter NotebookがMathJaxなので揃えたかった。
 
@@ -91,31 +101,6 @@ $$
 [^ref1]: https://m0t0k1ch1st0ry.com/blog/2017/10/07/mathjax/
 [^ref2]: https://gohugo.io/templates/partials/
 
-## config.toml
-
-雰囲気で設定ファイルを触っている
-
-```
-title = "ロックスター・エナジードリンク"
-baseURL = "https://higgma.github.io/rockstar/"
-languageCode = "ja-jp"
-
-# github pages
-publishDir = "docs"
-
-# for summary
-hasCJKLanguage = true
-summaryLength = 140
-
-# tmaiaroto/hugo-redlounge
-theme = "hugo-redlounge"
-
-[params]
-    sidebartitle = "Rockstar"
-    sidebartagline = "Is super awesome"
-
-```
-
 ## CircleCI
 
 はやく脳死で書けるようになりたい。
@@ -140,6 +125,3 @@ jobs:
           git commit -m "[ci skip] Circle CI"
       - run: git push origin master
 ```
-
-
-
