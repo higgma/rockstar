@@ -8,18 +8,11 @@ jobs:
       - checkout
       - run: git submodule sync
       - run: git submodule update --init --recursive
-      - restore_cache:
-          keys:
-          - v1-dep-{{ .Branch }}-
-          - v1-dep-master-
-          - v1-dep-
       - run: go get -v github.com/gohugoio/hugo
-      - run: |
-          hugo
+      - run: hugo
       - run: |
           git config --global user.name CircleCI
           git config --global user.email "<>"
           git add -A
           git commit -m "[ci skip] Circle CI"
-      - run: |
-          git push origin master
+      - run: git push origin master
