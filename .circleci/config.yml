@@ -15,10 +15,9 @@ jobs:
           git config --global user.email "<>"
           git add -A
 
-          if [ "$(git diff --cached --numstat | wc -l)" -eq "0" ]; then
-            circleci step halt
+          if [ "$(git diff --cached --numstat | wc -l)" -ne "0" ]; then
+            git commit -m "[ci skip] Circle CI"
+            git push origin master
+          else
+            echo "nothing to commit."
           fi
-
-          git commit -m "[ci skip] Circle CI"
-      - run: |
-          git push origin master
