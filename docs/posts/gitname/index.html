@@ -57,6 +57,19 @@
   
 
   
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-130172996-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
 
   
 </head>
@@ -119,15 +132,11 @@
 
 			
 
-            <p>我々は署名を求められている。その際、間違って恥ずかしい名前を載せたくないものだ。</p>
+            <p>間違って恥ずかしい名前を載せたくないものだ。あるいは、新しいパソコンにGitの名前を設定するのがめんどくさい。</p>
 
 <p>以下のコマンドは、一度実行すれば、<code>./.git/config</code> に設定として永続化される。もし手元のPCでochinchinというユーザーネームを使っていても、コミットログにはその気配を残さない。</p>
 
-<pre><code># .giitignore
-myconfig.sh
-
-# myconfig.sh
-git config user.useConfigOnly true
+<pre><code>git config user.useConfigOnly true
 NAME=&quot;Higuma&quot;
 EMAIL=&quot;higgma@example.com&quot;
 git config user.name $NAME
@@ -168,7 +177,7 @@ user.email=higgma@example.com
 					
 					<div class="paging-older">
 						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
-			            <a class="paging-link" href="/rockstar/posts/my-first-post/">メイキング・ブログ(Hugo編)</a>
+			            <a class="paging-link" href="/rockstar/posts/my-first-post/">メイキング・ブログ後編(Hugo)</a>
 		            </div>
 		            
 	            </div>
