@@ -10,14 +10,16 @@ jobs:
       - run: git submodule update --init --recursive
       - run: go get -v github.com/gohugoio/hugo
       - run: hugo
-      - run: |
-          git config --global user.name CircleCI
-          git config --global user.email "<>"
-          git add -A
+      - run:
+          name: Git Push
+          command: |
+              git config --global user.name CircleCI
+              git config --global user.email "<>"
+              git add -A
 
-          if [ "$(git diff --cached --numstat | wc -l)" -ne "0" ]; then
-            git commit -m "[ci skip] Circle CI"
-            git push origin master
-          else
-            echo "nothing to commit."
-          fi
+              if [ "$(git diff --cached --numstat | wc -l)" -ne "0" ]; then
+                git commit -m "[ci skip] Circle CI"
+                git push origin master
+              else
+                echo "nothing to commit."
+              fi
