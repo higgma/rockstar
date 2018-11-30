@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on My New Hugo Site</title>
+    <link>http://example.org/posts/</link>
+    <description>Recent content in Posts on My New Hugo Site</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 30 Nov 2018 16:23:42 +0900</lastBuildDate>
+    
+	<atom:link href="http://example.org/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugoにいく</title>
+      <link>http://example.org/posts/my-first-post/</link>
+      <pubDate>Fri, 30 Nov 2018 16:23:42 +0900</pubDate>
+      
+      <guid>http://example.org/posts/my-first-post/</guid>
+      <description>インストール 管理者権限コマンドプロンプトで
+choco install hugo  新しくつくるには
+hugo new site myblog  テーマの入手と適用 テーマはこれにきめた。
+https://themes.gohugo.io//theme/kiss/
+cd themes git clone https://github.com/ribice/kiss.git cd ../ echo &#39;theme = &amp;quot;kiss&amp;quot;&#39; &amp;gt;&amp;gt; config.toml  何か書く hugo new posts/my-first-post.md  --- title: &amp;quot;My First Post&amp;quot; date: 2018-11-30T16:23:42+09:00 draft: false --- Hello World  表示 hugo server -D  記事の更新はホットリロードしてくれるが、config.tomlをいじった場合は再起動させる必要がある。</description>
+    </item>
+    
+  </channel>
+</rss>

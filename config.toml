@@ -1,0 +1,11 @@
+title = "ロックスター・エナジードリンク"
+baseURL = "http://example.org/"
+languageCode = "ja-jp"
+theme = "kiss"
+
+# github pages
+publishDir = "docs"
+
+# for summary
+hasCJKLanguage = true
+summaryLength = 140

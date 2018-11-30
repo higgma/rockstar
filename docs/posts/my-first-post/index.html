@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en-us">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Hugoにいく | My New Hugo Site</title>
+
+
+
+<link rel="stylesheet" href="/css/style.css"/><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+<section class="section">
+  <div class="container">
+    <nav class="nav">
+      <div class="nav-left">
+        <a class="nav-item" href="http://example.org/">
+          <h1 class="title is-4">My New Hugo Site</h1>
+        </a>
+      </div>
+      <div class="nav-right">
+        <nav class="nav-item level is-mobile"></nav>
+      </div>
+    </nav>
+
+    <nav class="nav">
+      
+
+      
+    </nav>
+
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+    </div>
+    <h2 class="subtitle is-6">November 30, 2018</h2>
+    <h1 class="title">Hugoにいく</h1>
+    
+    <div class="content">
+      
+
+<h2 id="インストール">インストール</h2>
+
+<p>管理者権限コマンドプロンプトで</p>
+
+<pre><code>choco install hugo
+</code></pre>
+
+<p>新しくつくるには</p>
+
+<pre><code>hugo new site myblog
+</code></pre>
+
+<h2 id="テーマの入手と適用">テーマの入手と適用</h2>
+
+<p>テーマはこれにきめた。</p>
+
+<p><a href="https://themes.gohugo.io//theme/kiss/">https://themes.gohugo.io//theme/kiss/</a></p>
+
+<pre><code>cd themes
+git clone https://github.com/ribice/kiss.git
+cd ../
+echo 'theme = &quot;kiss&quot;' &gt;&gt; config.toml
+</code></pre>
+
+<h2 id="何か書く">何か書く</h2>
+
+<pre><code>hugo new posts/my-first-post.md
+</code></pre>
+
+<pre><code>---
+title: &quot;My First Post&quot;
+date: 2018-11-30T16:23:42+09:00
+draft: false
+---
+
+Hello World
+</code></pre>
+
+<h2 id="表示">表示</h2>
+
+<pre><code>hugo server -D
+</code></pre>
+
+<p>記事の更新はホットリロードしてくれるが、config.tomlをいじった場合は再起動させる必要がある。</p>
+
+<p><img src="https://i.imgur.com/fqOrgQ1.png" alt="" /></p>
+
+      
+    </div>
+    
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p></p>
+    
+  </div>
+</section>
+
+
+
+</body>
+</html>
+
