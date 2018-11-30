@@ -6,15 +6,15 @@ jobs:
     working_directory: ~/repo
     steps:
       - checkout
-      - run: >
+      - run: |
           git submodule sync
           git submodule update --init
           go get github.com/gohugoio/hugo
           hugo
-      - run: >
+      - run: |
           git config --global user.name CircleCI
           git config --global user.email "<>"
           git add -A
           git commit -m "[ci skip] Circle CI"
-      - run: >
+      - run: |
           git push origin master
