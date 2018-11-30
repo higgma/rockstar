@@ -101,7 +101,6 @@
 <ul>
 <li>
 <ul>
-<li><a href="#gitの名義管理">Gitの名義管理</a></li>
 <li><a href="#ブログを作る">ブログを作る</a></li>
 <li><a href="#イニシャルコミット">イニシャルコミット</a></li>
 <li><a href="#circleci">CircleCI</a></li>
@@ -138,44 +137,6 @@
             
 
 <p>人は何故「ブログを作った」というブログエントリを書いてしまうのだろう。</p>
-
-<h2 id="gitの名義管理">Gitの名義管理</h2>
-
-<p>我々は署名を求められている。その際、間違って恥ずかしい名前を載せたくないものだ。</p>
-
-<p>以下のコマンドは、一度実行すれば、<code>./.git/config</code> に設定として永続化される。もし手元のPCでochinchinというユーザーネームを使っていても、コミットログにはその気配を残さない。</p>
-
-<pre><code># .giitignore
-myconfig.sh
-
-# myconfig.sh
-git config user.useConfigOnly true
-NAME=&quot;Higuma&quot;
-EMAIL=&quot;higgma@example.com&quot;
-git config user.name $NAME
-git config user.email $EMAIL
-echo &quot;Set user.name as $(git config --get user.name)&quot;
-echo &quot;Set user.email as $(git config --get user.email)&quot;
-</code></pre>
-
-<p><code>.git</code> がどのような情報を持っているかを見てみよう。</p>
-
-<pre><code>$ git config --list --local
-core.repositoryformatversion=0
-core.filemode=false
-core.bare=false
-core.logallrefupdates=true
-core.ignorecase=true
-remote.origin.url=https://github.com/higgma/je.git
-remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
-user.useconfigonly=true
-user.name=Higuma
-user.email=higgma@example.com
-</code></pre>
-
-<p>ところで <code>git config</code> コマンド全般について、インターネットを見ていると <code>--global</code> なる引数を見かけることがある。これは <code>./.git/config</code> ではなく <code>~/.gitconfig</code> に対して永続化をもたらす。</p>
-
-<p>つまり、設定がPC全体に影響する。常に同じ名義を使う場合、つまり大方のケースでは<code>--global</code>をつけるだろうが、特定のプロジェクト（フォルダ）に設定を閉じ込めたい場合、この引数は使わない。</p>
 
 <h2 id="ブログを作る">ブログを作る</h2>
 

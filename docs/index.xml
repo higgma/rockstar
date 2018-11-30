@@ -6,10 +6,19 @@
     <description>Recent content on ロックスター・エナジードリンク</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Fri, 30 Nov 2018 16:23:42 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 30 Nov 2018 18:44:30 +0900</lastBuildDate>
     
 	<atom:link href="https://higgma.github.io/rockstar/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Gitコミットの名義管理</title>
+      <link>https://higgma.github.io/rockstar/posts/gitname/</link>
+      <pubDate>Fri, 30 Nov 2018 18:44:30 +0900</pubDate>
+      
+      <guid>https://higgma.github.io/rockstar/posts/gitname/</guid>
+      <description>我々は署名を求められている。その際、間違って恥ずかしい名前を載せたくないものだ。 以下のコマンドは、一度実行すれば、./.git/config に設定として永続化される。もし手元のPCでochinchinというユーザーネームを使っていても、コミットログにはその気配を残さない。 # .giitignore myconfig.sh #</description>
+    </item>
     
     <item>
       <title>メイキング・ブログ(Hugo編)</title>
@@ -26,7 +35,7 @@
       <pubDate>Fri, 30 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>https://higgma.github.io/rockstar/posts/2018-11-30-blog/</guid>
-      <description>人は何故「ブログを作った」というブログエントリを書いてしまうのだろう。 Gitの名義管理 我々は署名を求められている。その際、間違って恥ずかしい名前を載せたくないものだ。 以下のコマンドは、一度実行すれば、./.git/config に設定として永続化される。もし手元のPCでochinc</description>
+      <description>人は何故「ブログを作った」というブログエントリを書いてしまうのだろう。 ブログを作る gem install bundler jekyll jekyll new my-awesome-site cd my-awesome-site なお、GitHub Pagesはdocs/を読むので、Jekyllの設定ファイル_config.ymlに次を加える。 destination: docs イニシャルコミット コミットする。 git init git add . git commit -m &amp;quot;Initial Commit&amp;quot; $ git log commit 6e5547a60ad7bed7bbf73cba40ba650bc5faa00b</description>
     </item>
     
   </channel>

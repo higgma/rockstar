@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <title>
+    Gitコミットの名義管理 // ロックスター・エナジードリンク
+  </title>
+
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="author" content="">
+<meta name="generator" content="Hugo 0.53-DEV" />
+
+  <meta property="og:title" content="Gitコミットの名義管理" />
+<meta property="og:description" content="" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://higgma.github.io/rockstar/posts/gitname/" />
+
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/base-min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/pure-min.css">
+  
+  
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/pure/0.5.0/grids-responsive-min.css">
+  
+  
+
+  <link rel="stylesheet" href="https://higgma.github.io/rockstar//css/redlounge.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link href='//fonts.googleapis.com/css?family=Raleway:400,200,100,700,300,500,600,800' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic' rel='stylesheet' type='text/css'>
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" type="image/x-icon" href="/img/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="ロックスター・エナジードリンク" />
+
+    
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/tomorrow-night-bright.min.css">
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+  
+
+  
+
+  
+
+  
+</head>
+
+<body>
+	
+
+	<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+  <div class="header">
+    
+
+	
+
+    <h1 class="brand-title">Rockstar</h1>
+    <h2 class="brand-tagline">Is super awesome</h2>
+
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><span class="nav-item-separator">//</span><a href="https://higgma.github.io/rockstar/">Home</a></li>
+        
+      </ul>
+    </nav>
+
+    
+
+  </div>
+</div>
+
+	
+	
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+		<a name="top"></a>
+		
+
+		
+			
+	    
+  		<section class="post">
+            <h1 class="post-title">
+              <a href="/rockstar/posts/gitname/">Gitコミットの名義管理</a>
+            </h1>
+            <h3 class="post-subtitle">
+            	
+            </h3>
+            
+            	<span class="post-date">
+                	<span class="post-date-day"><sup>30</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2018</span>
+            	</span>
+            	
+            
+            	
+            
+
+			
+			
+
+			
+
+			
+
+            <p>我々は署名を求められている。その際、間違って恥ずかしい名前を載せたくないものだ。</p>
+
+<p>以下のコマンドは、一度実行すれば、<code>./.git/config</code> に設定として永続化される。もし手元のPCでochinchinというユーザーネームを使っていても、コミットログにはその気配を残さない。</p>
+
+<pre><code># .giitignore
+myconfig.sh
+
+# myconfig.sh
+git config user.useConfigOnly true
+NAME=&quot;Higuma&quot;
+EMAIL=&quot;higgma@example.com&quot;
+git config user.name $NAME
+git config user.email $EMAIL
+echo &quot;Set user.name as $(git config --get user.name)&quot;
+echo &quot;Set user.email as $(git config --get user.email)&quot;
+</code></pre>
+
+<p><code>.git</code> がどのような情報を持っているかを見てみよう。</p>
+
+<pre><code>$ git config --list --local
+core.repositoryformatversion=0
+core.filemode=false
+core.bare=false
+core.logallrefupdates=true
+core.ignorecase=true
+remote.origin.url=https://github.com/higgma/je.git
+remote.origin.fetch=+refs/heads/*:refs/remotes/origin/*
+user.useconfigonly=true
+user.name=Higuma
+user.email=higgma@example.com
+</code></pre>
+
+<p>ところで <code>git config</code> コマンド全般について、インターネットを見ていると <code>--global</code> なる引数を見かけることがある。これは <code>./.git/config</code> ではなく <code>~/.gitconfig</code> に対して永続化をもたらす。</p>
+
+<p>つまり、設定がPC全体に影響する。常に同じ名義を使う場合、つまり大方のケースでは<code>--global</code>をつけるだろうが、特定のプロジェクト（フォルダ）に設定を閉じ込めたい場合、この引数は使わない。</p>
+
+	
+			
+
+			
+
+			
+				<div class="paging">
+					<span class="paging-label">More Reading</span>
+					
+
+					
+					<div class="paging-older">
+						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
+			            <a class="paging-link" href="/rockstar/posts/my-first-post/">メイキング・ブログ(Hugo編)</a>
+		            </div>
+		            
+	            </div>
+            
+          </section>
+          
+          	
+          
+        
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+</script>
+<script type="text/javascript" 
+    async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<style>
+     
+    .post img {
+        max-width: 100%;
+    }
+</style>
+
+    </div>
+  </div>
+	
+
+	
+
+  
+</body>
+</html>
