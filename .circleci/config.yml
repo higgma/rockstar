@@ -14,5 +14,10 @@ jobs:
           git config --global user.name CircleCI
           git config --global user.email "<>"
           git add -A
+
+          if [ "$(git diff --cached --numstat | wc -l)" -eq "0" ]; then
+            circleci step halt
+          fi
+
           git commit -m "[ci skip] Circle CI"
       - run: git push origin master
