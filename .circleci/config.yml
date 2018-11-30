@@ -20,4 +20,5 @@ jobs:
           fi
 
           git commit -m "[ci skip] Circle CI"
-      - run: git push origin master
+      - run: |
+          git push origin master
