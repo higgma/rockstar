@@ -104,5 +104,28 @@ hasCJKLanguage = true
 summaryLength = 140
 ```
 
+## .circleci/config.yml
+
+```yaml
+version: 2
+jobs:
+  build:
+    docker:
+      - image: golang:latest
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init --recursive
+      - run: go get -v github.com/gohugoio/hugo
+      - run: hugo
+      - run: |
+          git config --global user.name CircleCI
+          git config --global user.email "<>"
+          git add -A
+          git commit -m "[ci skip] Circle CI"
+      - run: git push origin master
+```
+
 [^ref1]: https://m0t0k1ch1st0ry.com/blog/2017/10/07/mathjax/
 [^ref2]: https://gohugo.io/templates/partials/
