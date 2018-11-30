@@ -132,30 +132,28 @@ if (!doNotTrack) {
 
 			
 
-            <p>Herokuにアプリをデプロイする場合、普通は<code>heroku</code>コマンドを使えという話になるはずだが、使うツールが少なければ少ないほど偉いというマイブームの縛りプレイである。</p>
+            <p>Herokuにアプリをデプロイする場合、普通は<code>heroku</code>コマンドを使えという話になるはずだが、IaaS的に見るならば公開鍵さえ預けてしまえばデプロイはできるわけで。</p>
 
 <pre><code>mkdir sandbox
 cd sandbox
 
 # 使い捨ての鍵ペア
 ssh-keygen -t rsa -b 4096 -C 'username@example.com' -f ./id_rsa
-
-# 適当なWebアプリ
-rails new myapp --database=postgresql
-cd myapp
 </code></pre>
-
-<p>要するにHerokuさんに公開鍵さえ預けてしまえばデプロイはできるわけで。</p>
 
 <p>HerokuのWeb管理画面を開き、適当なアプリを作り、↑で生成した公開鍵を登録する。</p>
 
 <p>WebアプリのGitリポジトリに、Herokuアプリのリモートリポジトリの場所と、使用する秘密鍵の情報を与える。</p>
 
-<pre><code>git remote add heroku git@heroku.com:blooming-oasis-35383.git
+<pre><code># 適当なWebアプリ
+rails new myapp --database=postgresql
+cd myapp
+
+git remote add heroku git@heroku.com:blooming-oasis-35383.git
 git config core.sshCommand 'ssh -i ../id_rsa'
 </code></pre>
 
-<p>ついでに名前。</p>
+<p>ついでに名前も。</p>
 
 <pre><code>NAME=&quot;Higuma&quot;
 EMAIL=&quot;higgma@example.com&quot;
@@ -163,7 +161,7 @@ git config user.name $NAME
 git config user.email $EMAIL
 </code></pre>
 
-<p>このようにすると何が嬉しいかというと、 <code>.git/config</code> に書いてある情報のみを用いていることがはっきりする。</p>
+<p>このようにすると何が嬉しいかというと、 <code>.git/config</code> に書いてある情報を用いていることがはっきりする。</p>
 
 <pre><code>$ cat .git/config
 [core]

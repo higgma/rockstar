@@ -17,7 +17,7 @@
       <pubDate>Fri, 30 Nov 2018 23:01:00 +0900</pubDate>
       
       <guid>https://higgma.github.io/rockstar/posts/heroku/</guid>
-      <description>Herokuにアプリをデプロイする場合、普通はherokuコマンドを使えという話になるはずだが、使うツールが少なければ少ないほど偉いというマイブームの縛りプレイである。 mkdir sandbox cd sandbox # 使い捨ての鍵ペア ssh-keygen -t rsa -b 4096 -C &#39;username@example.com&#39; -f ./id_rsa # 適当なWebアプリ rails new myapp --database=postgresql</description>
+      <description>Herokuにアプリをデプロイする場合、普通はherokuコマンドを使えという話になるはずだが、IaaS的に見るならば公開鍵さえ預けてしまえばデプロイはできるわけで。 mkdir sandbox cd sandbox # 使い捨ての鍵ペア ssh-keygen -t rsa -b 4096 -C &#39;username@example.com&#39; -f ./id_rsa HerokuのWeb管理画面を</description>
     </item>
     
     <item>
