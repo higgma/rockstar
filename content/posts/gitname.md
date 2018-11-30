@@ -3,15 +3,11 @@ title: "Gitコミットの名義管理"
 date: 2018-11-30T18:44:30+09:00
 ---
 
-我々は署名を求められている。その際、間違って恥ずかしい名前を載せたくないものだ。
+間違って恥ずかしい名前を載せたくないものだ。あるいは、新しいパソコンにGitの名前を設定するのがめんどくさい。
 
 以下のコマンドは、一度実行すれば、`./.git/config` に設定として永続化される。もし手元のPCでochinchinというユーザーネームを使っていても、コミットログにはその気配を残さない。
 
 ```
-# .giitignore
-myconfig.sh
-
-# myconfig.sh
 git config user.useConfigOnly true
 NAME="Higuma"
 EMAIL="higgma@example.com"

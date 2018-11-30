@@ -1,9 +1,11 @@
 ---
-title: "メイキング・ブログ(Hugo編)"
+title: "メイキング・ブログ後編(Hugo)"
 date: 2018-11-30T16:23:42+09:00
 ---
 
 特にこだわりがなくJekyllを触っていたら、いつの間にかHugoに寝返っていた。Jekyllのドキュメントが見づらく要求を満たせずIssueの海に潜ることの辛さに音を上げたのだった。他方、Hugoのドキュメントはしっかりしている。
+
+前編で溶けた時間の大半はCircleCI由来だったので、Hugoへの以降は大したことなかろう。そう高をくくっていたら、またCircleCIに時間を無限に溶かされた。
 
 ## インストール
 
@@ -13,44 +15,27 @@ date: 2018-11-30T16:23:42+09:00
 choco install hugo
 ```
 
-新しくつくるには
-
-```
-hugo new site myblog
-```
-
 ## 何か書く
 
 ```
-hugo new posts/my-first-post.md
+hugo new site myblog # 新規サイト作成
+hugo new posts/my-first-post.md # 記事作成
+hugo server -D # サーバ
+hugo # ビルド
 ```
 
-```
----
-title: "My First Post"
-date: 2018-11-30T16:23:42+09:00
-draft: false
----
-
-Hello World
-```
-
-## 表示
-
-```
-hugo server -D
-```
-
-`-D` をつけると記事の更新はホットリロードになる。ただし、`config.toml`をいじった場合は再起動させる必要がある。
+記事の更新はホットリロードである。ただし、`config.toml`をいじった場合は再起動させる必要がある。
 
 ## テーマの適用
+
+git submodule で管理するのが定石。
 
 ```
 cd themes
 git submodule add https://github.com/tmaiaroto/hugo-redlounge
 ```
 
-config.toml
+config.toml にパラメータを求められることがあり、テーマのREADMEを確認する。
 
 ```
 title = "ロックスター・エナジードリンク"
@@ -101,7 +86,7 @@ $$
 
 ## CircleCI
 
-はやく脳死で書けるようになりたい。
+CIの気持ちがよくわからず疲弊する。はやく脳死で書けるようになりたい。
 
 ```
 version: 2
@@ -126,4 +111,4 @@ jobs:
 
 Insightを見ると、ビルド時間はだいたい1分ぐらいである。
 
-コミットメッセージは最初まじめに書いていてもそのうち `git pull origin master; git add .; git commit -m "a"; git push origin master` などやるようになり、治安が悪くっていく。
+ブログのコミットメッセージは、最初まじめに書いていてもそのうち誤字を軽くいじったりするために、 `git pull origin master; git add .; git commit -m "a"; git push origin master` などやるようになり、治安が悪くっていく。
