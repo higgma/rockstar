@@ -89,7 +89,7 @@ $$
 CIの気持ちがよくわからず疲弊する。はやく脳死で書けるようになりたい。
 
 ```
-version: 2
+version: 2.1
 jobs:
   build:
     docker:
@@ -101,12 +101,19 @@ jobs:
       - run: git submodule update --init --recursive
       - run: go get -v github.com/gohugoio/hugo
       - run: hugo
-      - run: |
-          git config --global user.name CircleCI
-          git config --global user.email "<>"
-          git add -A
-          git commit -m "[ci skip] Circle CI"
-      - run: git push origin master
+      - run:
+          name: Git Push
+          command: |
+              git config --global user.name CircleCI
+              git config --global user.email "<>"
+              git add -A
+
+              if [ "$(git diff --cached --numstat | wc -l)" -ne "0" ]; then
+                git commit -m "[ci skip] Circle CI"
+                git push origin master
+              else
+                echo "nothing to commit."
+              fi
 ```
 
 Insightを見ると、ビルド時間はだいたい1分ぐらいである。
