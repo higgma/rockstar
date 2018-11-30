@@ -9,7 +9,9 @@ jobs:
       - run: |
           git submodule sync
           git submodule update --init --recursive
+      - run: |
           go get -v github.com/gohugoio/hugo
+      - run: |
           hugo
       - run: |
           git config --global user.name CircleCI
