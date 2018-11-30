@@ -102,11 +102,10 @@
 <li>
 <ul>
 <li><a href="#インストール">インストール</a></li>
-<li><a href="#テーマの入手と適用">テーマの入手と適用</a></li>
 <li><a href="#何か書く">何か書く</a></li>
 <li><a href="#表示">表示</a></li>
-<li><a href="#数式を書けるようにする">数式を書けるようにする</a></li>
-<li><a href="#config-toml">config.toml</a></li>
+<li><a href="#テーマの適用">テーマの適用</a></li>
+<li><a href="#数式の有効化">数式の有効化</a></li>
 <li><a href="#circleci">CircleCI</a></li>
 </ul></li>
 </ul>
@@ -139,12 +138,9 @@
 
             
 
-<p>特にこだわりがなくJekyllを触っていたら、いつの間にかHugoに寝返っていた。</p>
-
-<p>巷で言われるホットリロードの速さは嬉しいけども、なくても困らない。
-よりクリティカルな問題はJekyllではドキュメントの整備が甘いことで、Issueの海に潜るなど辛さに音を上げた。</p>
-
-<p>他方、Hugoのドキュメントはしっかりしている。</p>
+<p>特にこだわりがなくJekyllを触っていたら、いつの間にかHugoに寝返っていた。
+Jekyllではドキュメントの整備が甘く、Issueの海に潜ることの辛さに音を上げた。
+他方、Hugoのドキュメントはしっかりしている。</p>
 
 <h2 id="インストール">インストール</h2>
 
@@ -156,18 +152,6 @@
 <p>新しくつくるには</p>
 
 <pre><code>hugo new site myblog
-</code></pre>
-
-<h2 id="テーマの入手と適用">テーマの入手と適用</h2>
-
-<p>テーマはこれにきめた。</p>
-
-<p><a href="https://themes.gohugo.io//theme/kiss/">https://themes.gohugo.io//theme/kiss/</a></p>
-
-<pre><code>cd themes
-git clone https://github.com/ribice/kiss.git
-cd ../
-echo 'theme = &quot;kiss&quot;' &gt;&gt; config.toml
 </code></pre>
 
 <h2 id="何か書く">何か書く</h2>
@@ -191,9 +175,34 @@ Hello World
 
 <p><code>-D</code> をつけると記事の更新はホットリロードになる。ただし、<code>config.toml</code>をいじった場合は再起動させる必要がある。</p>
 
-<p><img src="https://i.imgur.com/fqOrgQ1.png" alt="" /></p>
+<h2 id="テーマの適用">テーマの適用</h2>
 
-<h2 id="数式を書けるようにする">数式を書けるようにする</h2>
+<pre><code>cd themes
+git submodule add https://github.com/tmaiaroto/hugo-redlounge
+</code></pre>
+
+<p>config.toml</p>
+
+<pre><code>title = &quot;ロックスター・エナジードリンク&quot;
+baseURL = &quot;https://higgma.github.io/rockstar/&quot;
+languageCode = &quot;ja-jp&quot;
+
+# github pages
+publishDir = &quot;docs&quot;
+
+# for summary
+hasCJKLanguage = true
+summaryLength = 140
+
+# tmaiaroto/hugo-redlounge
+theme = &quot;hugo-redlounge&quot;
+
+[params]
+    sidebartitle = &quot;Rockstar&quot;
+    sidebartagline = &quot;Is super awesome&quot;
+</code></pre>
+
+<h2 id="数式の有効化">数式の有効化</h2>
 
 <p>数式エンジンにはMathJaxを選んだ。Jupyter NotebookがMathJaxなので揃えたかった。</p>
 
@@ -215,30 +224,6 @@ Hello World
 <p>$$
 y = f(x)
 $$</p>
-
-<h2 id="config-toml">config.toml</h2>
-
-<p>雰囲気で設定ファイルを触っている</p>
-
-<pre><code>title = &quot;ロックスター・エナジードリンク&quot;
-baseURL = &quot;https://higgma.github.io/rockstar/&quot;
-languageCode = &quot;ja-jp&quot;
-
-# github pages
-publishDir = &quot;docs&quot;
-
-# for summary
-hasCJKLanguage = true
-summaryLength = 140
-
-# tmaiaroto/hugo-redlounge
-theme = &quot;hugo-redlounge&quot;
-
-[params]
-    sidebartitle = &quot;Rockstar&quot;
-    sidebartagline = &quot;Is super awesome&quot;
-
-</code></pre>
 
 <h2 id="circleci">CircleCI</h2>
 
