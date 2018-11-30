@@ -246,6 +246,8 @@ jobs:
           git commit -m &quot;[ci skip] Circle CI&quot;
       - run: git push origin master
 </code></pre>
+
+<p>コミットメッセージは最初まじめに書いていてもそのうち <code>git pull origin master; git add .; git commit -m &quot;a&quot;; git push origin master</code> などやるようになり、治安が悪くなります。</p>
 <div class="footnotes">
 
 <hr />
