@@ -227,7 +227,7 @@ $$</p>
 
 <p>CIの気持ちがよくわからず疲弊する。はやく脳死で書けるようになりたい。</p>
 
-<pre><code>version: 2
+<pre><code>version: 2.1
 jobs:
   build:
     docker:
@@ -239,12 +239,19 @@ jobs:
       - run: git submodule update --init --recursive
       - run: go get -v github.com/gohugoio/hugo
       - run: hugo
-      - run: |
-          git config --global user.name CircleCI
-          git config --global user.email &quot;&lt;&gt;&quot;
-          git add -A
-          git commit -m &quot;[ci skip] Circle CI&quot;
-      - run: git push origin master
+      - run:
+          name: Git Push
+          command: |
+              git config --global user.name CircleCI
+              git config --global user.email &quot;&lt;&gt;&quot;
+              git add -A
+
+              if [ &quot;$(git diff --cached --numstat | wc -l)&quot; -ne &quot;0&quot; ]; then
+                git commit -m &quot;[ci skip] Circle CI&quot;
+                git push origin master
+              else
+                echo &quot;nothing to commit.&quot;
+              fi
 </code></pre>
 
 <p>Insightを見ると、ビルド時間はだいたい1分ぐらいである。</p>
