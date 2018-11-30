@@ -17,7 +17,7 @@
       <pubDate>Fri, 30 Nov 2018 16:23:42 +0900</pubDate>
       
       <guid>https://higgma.github.io/rockstar/posts/my-first-post/</guid>
-      <description>特にこだわりがなくJekyllを触っていたら、いつの間にかHugoに寝返っていた。 Jekyllではドキュメントの整備が甘く、Issueの海に潜ることの辛さに音を上げた。 他方、Hugoのドキュメントはしっかりしている。 インストール 管理者権限コマンドプロンプトで choco install hugo 新しくつくるには</description>
+      <description>特にこだわりがなくJekyllを触っていたら、いつの間にかHugoに寝返っていた。Jekyllのドキュメントが見づらく要求を満たせずIssueの海に潜ることの辛さに音を上げたのだった。他方、Hugoのドキュメントはしっかりしている。 インストール 管理者権限コマンドプロンプトで choco install hugo</description>
     </item>
     
     <item>
@@ -26,7 +26,7 @@
       <pubDate>Fri, 30 Nov 2018 00:00:00 +0000</pubDate>
       
       <guid>https://higgma.github.io/rockstar/posts/2018-11-30-blog/</guid>
-      <description>人は何故「ブログを作った」というブログエントリを書いてしまうのだろう。 要素 Jekyll (手直しできないのが気に入らないのでHugoにしたい) CircleCI GitHub Pages Gitの名義管理 我々は署名を求められている。その際、間違って恥ずかしい名前を載せたくないものだ。そんな名前で大丈夫か？ 以下のコマンドは、一度実行</description>
+      <description>人は何故「ブログを作った」というブログエントリを書いてしまうのだろう。 Gitの名義管理 我々は署名を求められている。その際、間違って恥ずかしい名前を載せたくないものだ。 以下のコマンドは、一度実行すれば、./.git/config に設定として永続化される。もし手元のPCでochinc</description>
     </item>
     
   </channel>
