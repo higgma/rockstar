@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
   <title>
-    herokuコマンドを使わずにherokuにデプロイする // ロックスター・エナジードリンク
+    ジャバ戦争への参加 // ロックスター・エナジードリンク
   </title>
 
   <link href="http://gmpg.org/xfn/11" rel="profile">
@@ -16,11 +16,11 @@
 <meta name="author" content="">
 <meta name="generator" content="Hugo 0.53-DEV" />
 
-  <meta property="og:title" content="herokuコマンドを使わずにherokuにデプロイする" />
+  <meta property="og:title" content="ジャバ戦争への参加" />
 <meta property="og:description" content="" />
 <meta property="og:type" content="website" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:url" content="https://higgma.github.io/rockstar/posts/heroku/" />
+<meta property="og:url" content="https://higgma.github.io/rockstar/posts/java-install/" />
 
 
   
@@ -108,17 +108,30 @@ if (!doNotTrack) {
 
 		
 			
+		    <div id="toc" class="pure-u-1 pure-u-md-1-4">
+				<small class="toc-label">Contents</small>
+		   	 	<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#links">Links</a></li>
+</ul></li>
+</ul>
+</nav>
+		    </div>
+		    
 	    
   		<section class="post">
             <h1 class="post-title">
-              <a href="/rockstar/posts/heroku/">herokuコマンドを使わずにherokuにデプロイする</a>
+              <a href="/rockstar/posts/java-install/">ジャバ戦争への参加</a>
             </h1>
             <h3 class="post-subtitle">
             	
             </h3>
             
             	<span class="post-date">
-                	<span class="post-date-day"><sup>30</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Nov</span> <span class="post-date-year">2018</span>
+                	<span class="post-date-day"><sup>2</sup></span><span class="post-date-separator">/</span><span class="post-date-month">Dec</span> <span class="post-date-year">2018</span>
             	</span>
             	
             
@@ -132,64 +145,39 @@ if (!doNotTrack) {
 
 			
 
-            <p>Herokuにアプリをデプロイする場合、普通は<code>heroku</code>コマンドを使えという話になるはずだが、IaaS的に見るならば公開鍵さえ預けてしまえばデプロイはできるわけで。</p>
+            
 
-<pre><code>mkdir sandbox
-cd sandbox
+<p>Java環境のことをJDKと呼ぶ。Java史を追うと、現在はJDK王位継承問題に特徴づけられており、色々なJDKの入手先が併存しているようだ。</p>
 
-# 使い捨ての鍵ペア
-ssh-keygen -t rsa -b 4096 -C 'username@example.com' -f ./id_rsa
+<p>JDKのオープンソース実装としてOpenJDKがある。Amazon Correttoはマルチプラットフォーム、無償、LTSを売りとする<sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup>OpenJDKである。</p>
+
+<h2 id="installation">Installation</h2>
+
+<p><a href="https://aws.amazon.com/jp/corretto/">Amazon Corretto Production-ready distribution of OpenJDK</a></p>
+
+<p>からインストーラをDLしてインストールする。
+その後、Path環境変数に <code>%JAVA_HOME%\bin</code>  を与える。</p>
+
+<pre><code>$ java -version
+java version &quot;1.8.0_192&quot;
+Java(TM) SE Runtime Environment (build 1.8.0_192-b12)
+Java HotSpot(TM) Client VM (build 25.192-b12, mixed mode, sharing)
 </code></pre>
 
-<p>HerokuのWeb管理画面を開き、適当なアプリを作り、↑で生成した公開鍵を登録する。</p>
+<h2 id="links">Links</h2>
 
-<p>WebアプリのGitリポジトリに、Herokuアプリのリモートリポジトリの場所と、使用する秘密鍵の情報を与える。</p>
+<ul>
+<li><a href="https://docs.aws.amazon.com/ja_jp/corretto/latest/corretto-8-ug/windows-7-install.html">Amazon Corretto 8 Installation instructions for Amazon Linux 2 - Amazon Corretto 8</a></li>
+</ul>
+<div class="footnotes">
 
-<pre><code># 適当なWebアプリ
-rails new myapp --database=postgresql
-cd myapp
+<hr />
 
-git remote add heroku git@heroku.com:blooming-oasis-35383.git
-git config core.sshCommand 'ssh -i ../id_rsa'
-</code></pre>
-
-<p>ついでに名前も。</p>
-
-<pre><code>NAME=&quot;Higuma&quot;
-EMAIL=&quot;higgma@example.com&quot;
-git config user.name $NAME
-git config user.email $EMAIL
-</code></pre>
-
-<p>このようにすると何が嬉しいかというと、 <code>.git/config</code> に書いてある情報を用いていることがはっきりする。</p>
-
-<pre><code>$ cat .git/config
-[core]
-        repositoryformatversion = 0
-        filemode = false
-        bare = false
-        logallrefupdates = true
-        ignorecase = true
-        sshCommand = ssh -i ../id_rsa
-[remote &quot;heroku&quot;]
-        url = git@heroku.com:blooming-oasis-35383.git
-        fetch = +refs/heads/*:refs/remotes/heroku/*
-[user]
-        name = Higuma
-        email = higgma@example.com
-</code></pre>
-
-<p>git push する。</p>
-
-<pre><code>$ git push heroku master
-remote: -----&gt; Launching...
-remote:        Released v6
-remote:        https://blooming-oasis-35383.herokuapp.com/ deployed to Heroku
-remote:
-remote: Verifying deploy... done.
-To heroku.com:blooming-oasis-35383.git
- * [new branch]      master -&gt; master
-</code></pre>
+<ol>
+<li id="fn:1"><a href="https://gihyo.jp/news/nr/2018/11/1501">https://gihyo.jp/news/nr/2018/11/1501</a>
+ <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
+</ol>
+</div>
 
 	
 			
@@ -200,16 +188,11 @@ To heroku.com:blooming-oasis-35383.git
 				<div class="paging">
 					<span class="paging-label">More Reading</span>
 					
-					<div class="paging-newer">
-						<span class="dark-red">Newer</span><span class="decorative-marker">//</span>
-						<a class="paging-link" href="/rockstar/posts/java-install/">ジャバ戦争への参加</a>
-		            </div>
-		            
 
 					
 					<div class="paging-older">
 						<span class="dark-red">Older</span><span class="decorative-marker">//</span>
-			            <a class="paging-link" href="/rockstar/posts/gitname/">Gitコミットの名義管理</a>
+			            <a class="paging-link" href="/rockstar/posts/heroku/">herokuコマンドを使わずにherokuにデプロイする</a>
 		            </div>
 		            
 	            </div>

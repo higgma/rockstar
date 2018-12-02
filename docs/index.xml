@@ -6,10 +6,19 @@
     <description>Recent content on ロックスター・エナジードリンク</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Fri, 30 Nov 2018 23:01:00 +0900</lastBuildDate>
+    <lastBuildDate>Sun, 02 Dec 2018 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://higgma.github.io/rockstar/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ジャバ戦争への参加</title>
+      <link>https://higgma.github.io/rockstar/posts/java-install/</link>
+      <pubDate>Sun, 02 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://higgma.github.io/rockstar/posts/java-install/</guid>
+      <description>Java環境のことをJDKと呼ぶ。Java史を追うと、現在はJDK王位継承問題に特徴づけられており、色々なJDKの入手先が併存しているようだ。 JDKのオープンソース実装としてOpenJDKがある。Amazon Correttoはマルチプラット</description>
+    </item>
     
     <item>
       <title>herokuコマンドを使わずにherokuにデプロイする</title>
